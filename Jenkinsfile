@@ -13,8 +13,10 @@ pipeline {
     }
 	stage('Deploy via Tomcat'){
 	 steps {
-	   sshagent(['Mcasa_Test']) {
-       sh 'scp -o StrictHostKeyChecking=no /home/jenkins/agent/workspace/MCASA_TESTING/*.war ec2-user@10.94.0.75:/root/apache-tomcat-9.0.31/webapps/'
+		 sh 'ping 10.94.0.75'
+		 sh 'traceroute 10.94.0.75'
+	//   sshagent(['Mcasa_Test']) {
+       //sh 'scp -o StrictHostKeyChecking=no /home/jenkins/agent/workspace/MCASA_TESTING/*.war ec2-user@10.94.0.75:/root/apache-tomcat-9.0.31/webapps/'
     }
    }
   }
