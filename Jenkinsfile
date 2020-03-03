@@ -1,6 +1,11 @@
 pipeline {
   agent any
   
+   triggers {
+       // poll repo at mentioned time in UTC
+       pollSCM('06 14 * * *')
+   }
+	
   stages {
     stage('Clone git repo'){
      steps {
