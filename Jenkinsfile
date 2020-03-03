@@ -3,7 +3,7 @@ pipeline {
   
    triggers {
        // poll repo at mentioned time in UTC
-       pollSCM('25 14 * * *')
+       pollSCM('26 14 * * *')
    }
 	
   stages {
