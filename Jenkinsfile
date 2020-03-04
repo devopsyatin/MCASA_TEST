@@ -15,6 +15,7 @@ pipeline {
    stage('Deploy via Tomcat'){
     steps {
 	 sh 'echo "Deploy in progress"'
+	  sh 'echo testing'
 	  }
   	}
     }
