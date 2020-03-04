@@ -1,10 +1,9 @@
 pipeline {
   agent any
   
-   triggers {
-       // poll repo at mentioned time in UTC
-       cron('52 14 * * *')
-       pollSCM('48 14 * * *')
+triggers { 
+	pollSCM('7 11 * * *') 
+	}
    }
 	
   stages {
