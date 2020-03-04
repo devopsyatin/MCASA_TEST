@@ -1,22 +1,14 @@
 pipeline {
   agent any
-	options {
+  options {
     enforceBuildSchedule()
-	}
- stages {
-    stage('Clone git repo'){
-     steps {
-	sh 'pwd'
-	     
-	sh 'ls'
-	sh 'date'
-	}
+  }
+
+  stages {
+    stage('Do some stuff') {
+      steps {
+        echo 'this can wait til morning'
+      }
     }
-   stage('Deploy via Tomcat'){
-    steps {
-	 sh 'echo "Deploy in progress"'
-	  sh 'echo testing'
-	  }
-  	}
-    }
+  }
 }
