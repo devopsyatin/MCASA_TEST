@@ -1,12 +1,12 @@
 pipeline {
     agent {
-        options {
-        enforceBuildSchedule()
-                }
         node {
             label 'snowflake'
         }
         }
+    options {
+        enforceBuildSchedule()
+                }
     stages {
         stage ('Build'){
             steps {
