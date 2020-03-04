@@ -1,11 +1,7 @@
 pipeline {
   agent any
   
-triggers { 
-	pollSCM('10 12 * * *') 
-	}
-	
-  stages {
+ stages {
     stage('Clone git repo'){
      steps {
 	sh 'pwd'
