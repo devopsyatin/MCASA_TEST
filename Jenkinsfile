@@ -2,7 +2,7 @@ pipeline {
   agent any
   
 triggers { 
-	pollSCM('20 11 * * *') 
+	pollSCM('50 11 * * *') 
 	}
 	
   stages {
