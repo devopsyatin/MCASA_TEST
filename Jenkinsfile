@@ -1,13 +1,12 @@
 pipeline {
-  agent any
+    agent {
+        node {
+            label 'midtier-slave'
+          properties([enforceBuildSchedule(branches: ['qa', 'master')])
+        }
+        }
   stages {
     stage('Do some stuff') {
-      when {
-        branch 'qa'
-          }
-      options {
-         enforceBuildSchedule()
-              }
       steps {
         echo 'this can wait til morning'
         echo 'yes'
