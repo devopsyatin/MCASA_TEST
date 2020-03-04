@@ -30,7 +30,7 @@ pipeline {
                             {
                             echo "This would deploy to PROD"
                             } 
-                        else if ( "${env.BRANCH_NAME}" == "Release" )
+                        else if ( "${env.BRANCH_NAME}" == "qa" )
                             {
                             echo "This would deploy to UAT"
                             } 
