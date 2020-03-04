@@ -1,5 +1,7 @@
 pipeline {
     agent {
+        options {
+        enforceBuildSchedule()
         node {
             label 'snowflake'
         }
