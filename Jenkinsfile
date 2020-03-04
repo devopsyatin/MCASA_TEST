@@ -1,6 +1,8 @@
 pipeline {
   agent any
-  
+	options {
+    enforceBuildSchedule()
+	}
  stages {
     stage('Clone git repo'){
      steps {
