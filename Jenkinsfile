@@ -1,14 +1,46 @@
 pipeline {
-    agent any 
-        options {
-        enforceBuildSchedule()
-                  }
-  stages {
-    stage('Do some stuff') {
-      steps {
-        echo 'this can wait til morning'
-        echo 'yes'
-      }
+    agent {
+        node {
+            label 'snowflake'
+        }
+        }
+    stages {
+        stage ('Build'){
+            steps {
+                container ('sqitch'){
+                    sh 'echo "Building"' 
+                }
+            }
+        }
+        stage ('Push WAR to Nexus'){
+            steps {
+                container ('sqitch'){
+                    script {
+                        echo "Uploading to Nexus"
+                    }
+                }
+            }
+        }
+        stage ('Execute Tower Playbook'){
+            steps {
+                container ('sqitch'){
+                    script {
+                        echo "Branch == ${env.BRANCH_NAME}"
+                        if ( "${env.BRANCH_NAME}" == "master" )
+                            {
+                            echo "This would deploy to PROD"
+                            } 
+                        else if ( "${env.BRANCH_NAME}" == "Release" )
+                            {
+                            echo "This would deploy to UAT"
+                            } 
+                        else if ( "${env.BRANCH_NAME}" == "Development" )
+                            {
+                            echo "This would deploy to Development"
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-  }
-}
