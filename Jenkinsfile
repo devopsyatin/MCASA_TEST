@@ -2,7 +2,7 @@ pipeline {
     agent {
         node {
             label 'midtier-slave'
-          properties([enforceBuildSchedule(branches: ['qa', 'master')])
+            properties([enforceBuildSchedule(branches: ['qa', 'master'])])
         }
         }
   stages {
