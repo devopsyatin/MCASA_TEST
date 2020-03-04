@@ -1,7 +1,7 @@
 pipeline {
     agent any 
         options {
-        enforceBuildSchedule(branches: ['master', 'qa'])
+        enforceBuildSchedule()
                   }
   stages {
     stage('Do some stuff') {
