@@ -9,7 +9,6 @@ pipeline {
       steps {
         echo 'this can wait til morning'
         echo 'yes'
-        
       }
     }
   }
