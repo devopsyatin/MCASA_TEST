@@ -4,7 +4,7 @@ pipeline {
             label 'snowflake'
         }
         }
-properties([enforceBuildSchedule(branches: ['master', 'qa'])])
+options([enforceBuildSchedule(branches: ['master', 'qa'])])
     stages {
         stage ('Build'){
             steps {
