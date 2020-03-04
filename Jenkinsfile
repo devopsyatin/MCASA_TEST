@@ -9,6 +9,7 @@ triggers {
     stage('Clone git repo'){
      steps {
 	sh 'pwd'
+	     
 	sh 'ls'
 	sh 'date'
 	}
