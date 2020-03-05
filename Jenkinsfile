@@ -12,6 +12,7 @@ pipeline {
             steps {
                 container ('sqitch'){
                     sh 'echo "Building"' 
+                    sh 'echo test'
                 }
             }
         }
