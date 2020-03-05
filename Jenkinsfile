@@ -9,6 +9,8 @@ pipeline {
             label 'snowflake'
         }
         }
+    options {
+    enforceBuildSchedule()
     triggers {
         cron(schedule)
     }
