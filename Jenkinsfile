@@ -1,3 +1,8 @@
+#!/usr/bin/env groovy
+
+def schedule = env.BRANCH_NAME.contains('master') ? '05 12 * * *' : env.BRANCH_NAME == 'develop' ? '07 12 * * *' : ''
+
+
 pipeline {
     agent {
         node {
@@ -5,17 +10,14 @@ pipeline {
         }
         }
     triggers {
-        cron(env.BRANCH_NAME == 'master' ? '24 11 * * *' : '')
-            }
-    triggers {
-        cron(env.BRANCH_NAME == 'qa' ? '25 11 * * *' : '')
-            }
+        cron(schedule)
+    }
     stages {
         stage ('Build'){
             steps {
                 container ('sqitch'){
                     sh 'echo "Building"' 
-                    sh 'echo test'
+                    sh 'echo testing'
                 }
             }
         }
