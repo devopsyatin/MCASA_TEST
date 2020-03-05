@@ -9,6 +9,9 @@ pipeline {
             label 'snowflake'
         }
         }
+    options {
+    enforceBuildSchedule()
+            }
     triggers {
         cron(schedule)
     }
@@ -18,7 +21,7 @@ pipeline {
                 container ('sqitch'){
                     sh 'echo "Building"' 
                     sh 'echo "testing"'
-                    sh 'echo "testing cron for qa1"'
+                    sh 'echo "testing cron"'
                 }
             }
         }
