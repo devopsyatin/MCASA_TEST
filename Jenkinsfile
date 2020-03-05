@@ -13,9 +13,9 @@ pipeline {
     enforceBuildSchedule()
             }
     
-     triggers {
-      cron(schedule)
-    }
+    // triggers {
+    //  cron(schedule)
+   // }
     stages {
         stage ('Build'){
             steps {
