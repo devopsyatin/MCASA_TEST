@@ -17,7 +17,8 @@ pipeline {
             steps {
                 container ('sqitch'){
                     sh 'echo "Building"' 
-                    sh 'echo testing'
+                    sh 'echo "testing"'
+                    sh 'echo 'testing cron"'
                 }
             }
         }
