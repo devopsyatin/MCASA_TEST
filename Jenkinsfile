@@ -12,8 +12,11 @@ pipeline {
     options {
     enforceBuildSchedule()
             }
-  //  triggers {
-  //      cron(schedule)
+    environment {
+    COMMIT = sh(script: '{ git log -1 --pretty=format:\'%an\'; } | xargs -I{} echo {} | sed \'s/\n//\'', returnStdout: true).trim()
+                }
+     triggers {
+      cron(schedule)
     }
     stages {
         stage ('Build'){
