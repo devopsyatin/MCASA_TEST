@@ -21,13 +21,19 @@ pipeline {
     enforceBuildSchedule()
             }
     
-  def gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD')
-  echo "gitCommit= ${gitCommit}"
-    
+   
     // triggers {
     //  cron(schedule)
    // }
     stages {
+        stage ('Setup Env Vars'){
+        steps {
+          script {
+                def gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD')
+                echo "gitCommit= ${gitCommit}"
+                    }
+                }
+            }
         stage ('Build'){
             steps {
                 container ('sqitch'){
