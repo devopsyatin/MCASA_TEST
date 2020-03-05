@@ -18,7 +18,7 @@ pipeline {
                 container ('sqitch'){
                     sh 'echo "Building"' 
                     sh 'echo "testing"'
-                    sh 'echo 'testing cron"'
+                    sh 'echo "testing cron"'
                 }
             }
         }
