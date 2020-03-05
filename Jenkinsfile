@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
-
+def commit = sh(script: '{ git log -1 --pretty=format:\'%an\'; echo "@yahoo.in, developer@yahoo.in"; } | xargs -I{} echo {} | sed \'s/\n//\'', returnStdout: true).trim()
 
 pipeline {
     agent {
@@ -12,9 +12,7 @@ pipeline {
     options {
     enforceBuildSchedule()
             }
-    environment {
-    COMMIT = sh(script: '{ git log -1 --pretty=format:\'%an\'; } | xargs -I{} echo {} | sed \'s/\n//\'', returnStdout: true).trim()
-                }
+    
      triggers {
       cron(schedule)
     }
