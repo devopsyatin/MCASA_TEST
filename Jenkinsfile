@@ -11,6 +11,7 @@ pipeline {
         }
     options {
     enforceBuildSchedule()
+            }
     triggers {
         cron(schedule)
     }
