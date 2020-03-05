@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
+//def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
 
 
 pipeline {
@@ -12,8 +12,8 @@ pipeline {
     options {
     enforceBuildSchedule()
             }
-    triggers {
-        cron(schedule)
+  //  triggers {
+  //      cron(schedule)
     }
     stages {
         stage ('Build'){
