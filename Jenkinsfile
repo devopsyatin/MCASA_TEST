@@ -1,14 +1,13 @@
 #!/usr/bin/env groovy
 
-import hudson.model.*
-import hudson.EnvVars
-import groovy.json.JsonSlurperClassic
-import groovy.json.JsonBuilder
-import groovy.json.JsonOutput
-import java.net.URL
+//import hudson.model.*
+//import hudson.EnvVars
+//import groovy.json.JsonSlurperClassic
+//import groovy.json.JsonBuilder
+//import groovy.json.JsonOutput
+//import java.net.URL
 
-def gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD')
-echo "gitCommit= ${gitCommit}"
+
 def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
 //def commit = sh(script: '{ git log -1 --pretty=format:\'%an\'; echo "@yahoo.in, developer@yahoo.in"; } | xargs -I{} echo {} | sed \'s/\n//\'', returnStdout: true).trim()
 
@@ -21,6 +20,9 @@ pipeline {
     options {
     enforceBuildSchedule()
             }
+    
+  def gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD')
+  echo "gitCommit= ${gitCommit}"
     
     // triggers {
     //  cron(schedule)
