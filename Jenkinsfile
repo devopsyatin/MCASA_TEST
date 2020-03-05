@@ -5,7 +5,7 @@ pipeline {
         }
         }
     triggers {
-        cron(env.BRANCH_NAME == 'qa' ? '05 11 * * *' : '')
+        cron(env.BRANCH_NAME == 'master' ? '17 11 * * *' : '')
             }
     stages {
         stage ('Build'){
