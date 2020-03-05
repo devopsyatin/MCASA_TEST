@@ -4,9 +4,8 @@ pipeline {
             label 'snowflake'
         }
         }
-    options{
-        enforceBuildSchedule(branches: ['master', 'qa'])
-        }
+    triggers {
+        cron(env.BRANCH_NAME == 'qa' ? '05 11 * * *' : '')
     stages {
         stage ('Build'){
             steps {
