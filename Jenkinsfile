@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def schedule = env.BRANCH_NAME.contains('master') ? '05 12 * * *' : env.BRANCH_NAME == 'qa' ? '07 12 * * *' : ''
+def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
 
 
 pipeline {
@@ -17,7 +17,8 @@ pipeline {
             steps {
                 container ('sqitch'){
                     sh 'echo "Building"' 
-                    sh 'echo testing'
+                    sh 'echo "testing"'
+                    sh 'echo "testing cron"'
                 }
             }
         }
