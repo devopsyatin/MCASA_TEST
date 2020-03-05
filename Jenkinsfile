@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def schedule = env.BRANCH_NAME.contains('master') ? '05 12 * * *' : env.BRANCH_NAME == 'qa' ? '07 12 * * *' : ''
+def schedule = env.BRANCH_NAME.contains('master') ? '12 12 * * *' : env.BRANCH_NAME == 'qa' ? '13 12 * * *' : ''
 
 
 pipeline {
