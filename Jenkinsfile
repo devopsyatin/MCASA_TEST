@@ -23,7 +23,8 @@ pipeline {
     
    
      triggers {
-      cron(schedule)
+      //cron(schedule)
+      pollSCM(schedule)   
     }
     stages {
         stage ('Setup Env Vars'){
