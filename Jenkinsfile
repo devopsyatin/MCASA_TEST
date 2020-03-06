@@ -22,9 +22,9 @@ pipeline {
             }
     
    
-    // triggers {
-    //  cron(schedule)
-   // }
+     triggers {
+      cron(schedule)
+    }
     stages {
         stage ('Setup Env Vars'){
         steps {
