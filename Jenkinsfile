@@ -1,5 +1,4 @@
-#!/usr/bin/env groovy
-
+#!groovy
 
 def call(body) {
   def config = [:]
@@ -15,8 +14,7 @@ def call(body) {
 //import java.net.URL
 
 
-def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
-//def commit = sh(script: '{ git log -1 --pretty=format:\'%an\'; echo "@yahoo.in, developer@yahoo.in"; } | xargs -I{} echo {} | sed \'s/\n//\'', returnStdout: true).trim()
+//def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
 
 	
 pipeline {
@@ -25,11 +23,13 @@ pipeline {
             label 'snowflake'
         }
         }
+	environment {
+			def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
+				}
     options {
     enforceBuildSchedule()
             }
-    
-   
+  
      triggers {
       //cron(schedule)
       pollSCM(schedule)   
