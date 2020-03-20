@@ -64,7 +64,7 @@ pipeline {
         stage ('Execute Tower Playbook'){
             steps {
                 container ('sqitch'){
-		  steps {
+		  //steps {
                     script {
                         echo "Branch == ${env.BRANCH_NAME}"
                         if ( "${env.BRANCH_NAME}" == "master" )
@@ -91,5 +91,5 @@ pipeline {
             	    }
         	}
     	    }
-	}
+//	}
 //    }
