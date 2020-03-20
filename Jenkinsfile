@@ -60,6 +60,12 @@ pipeline {
                         echo "Branch == ${env.BRANCH_NAME}"
                         if ( "${env.BRANCH_NAME}" == "master" )
                             {
+                             //checkout scm
+                             env.changefile = readTrusted('ChangeRequest.txt')
+                             lines = env.changefile.readLines()
+                             env.ChangeNumber = lines.get(0)
+                             echo "ServiceNow number used for this deployment is: ${env.ChangeNumber}"
+	                         outsideChange("oddev","${env.ChangeNumber}",999,"NONE","[code]<p> Jenkins Build: ${env.BUILD_TAG}</p><br><br><p>" + "</p>[code]")   
                             echo "This would deploy to PROD"
                             } 
                         else if ( "${env.BRANCH_NAME}" == "qa" )
