@@ -23,9 +23,6 @@ pipeline {
             label 'snowflake'
         }
         }
-	environment {
-			def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
-				}
     options {
     enforceBuildSchedule()
             }
