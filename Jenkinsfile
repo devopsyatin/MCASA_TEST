@@ -14,10 +14,13 @@ def call(body) {
 //import java.net.URL
 
 
-//def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
+def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_NAME == 'qa' ? 'H/3 * * * *' : ''
 
 	
 pipeline {
+	libraries {
+      	lib("servicenow@master")
+            }
     agent {
         node {
             label 'snowflake'
