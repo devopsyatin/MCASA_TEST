@@ -21,10 +21,10 @@ pipeline {
 	//libraries {
       	//lib("servicenow@master")
         //    }
-    agent {
-        node {
-            label 'snowflake'
-        }
+    agent any //{
+        //node {
+        //    label 'snowflake'
+        //}
         }
     //options {
     //enforceBuildSchedule()
