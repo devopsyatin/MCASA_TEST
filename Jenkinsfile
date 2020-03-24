@@ -18,9 +18,9 @@ def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_N
 
 	
 pipeline {
-	libraries {
-      	lib("servicenow@master")
-            }
+	//libraries {
+      	//lib("servicenow@master")
+        //    }
     agent {
         node {
             label 'snowflake'
@@ -70,11 +70,11 @@ pipeline {
                         if ( "${env.BRANCH_NAME}" == "master" )
                             {
                              //checkout scm
-                             env.changefile = readTrusted('ChangeRequest.txt')
-                             lines = env.changefile.readLines()
-                             env.ChangeNumber = lines.get(0)
-                             echo "ServiceNow number used for this deployment is: ${env.ChangeNumber}"
-	                         outsideChange("oddev","${env.ChangeNumber}",999,"NONE","[code]<p> Jenkins Build: ${env.BUILD_TAG}</p><br><br><p>" + "</p>[code]")   
+                             //env.changefile = readTrusted('ChangeRequest.txt')
+                             //lines = env.changefile.readLines()
+                             //env.ChangeNumber = lines.get(0)
+                             //echo "ServiceNow number used for this deployment is: ${env.ChangeNumber}"
+	                     //    outsideChange("oddev","${env.ChangeNumber}",999,"NONE","[code]<p> Jenkins Build: ${env.BUILD_TAG}</p><br><br><p>" + "</p>[code]")   
                             echo "This would deploy to PROD"
                             } 
                         else if ( "${env.BRANCH_NAME}" == "qa" )
