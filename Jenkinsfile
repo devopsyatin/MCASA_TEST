@@ -82,7 +82,8 @@ post {
          script{
            if ( "${env.BRANCH_NAME}" == "master" )
                   { 
-                  echo 'PROD Deployment Successful !!!'
+                echo 'PROD Deployment Successful !!!'
+		jiraSendBuildInfo branch: 'master', site: 'jira-jenkins-test.atlassian.net'
         	}
 	   else if ( "${env.BRANCH_NAME}" == "qa" )
                   {
