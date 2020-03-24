@@ -45,25 +45,25 @@ pipeline {
             }
         stage ('Build'){
             steps {
-                container ('sqitch'){
+                //container ('sqitch'){
                     sh 'echo "Building"' 
                     sh 'echo "testing"'
                     sh 'echo "testing cron"'
-                }
+                //}
             }
         }
         stage ('Push WAR to Nexus'){
             steps {
-                container ('sqitch'){
+                //container ('sqitch'){
                     script {
                         echo "Uploading to Nexus"
                     }
-                }
+                //}
             }
         }
         stage ('Execute Tower Playbook'){
             steps {
-                container ('sqitch'){
+                //container ('sqitch'){
 		  //steps {
                     script {
                         echo "Branch == ${env.BRANCH_NAME}"
@@ -90,6 +90,6 @@ pipeline {
                 	}
             	    }
         	}
-    	    }
+//    	    }
 //	}
 //    }
