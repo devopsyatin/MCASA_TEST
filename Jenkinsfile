@@ -18,22 +18,10 @@ def schedule = env.BRANCH_NAME.contains('master') ? 'H/4 * * * *' : env.BRANCH_N
 
 	
 pipeline {
-	//libraries {
-      	//lib("servicenow@master")
-        //    }
-    agent any //{
-        //node {
-        //    label 'snowflake'
-        //}
-        }
-    //options {
-    //enforceBuildSchedule()
-    //        }
-  
-     triggers {
-      //cron(schedule)
-      pollSCM(schedule)   
-    }
+	triggers {
+         	pollSCM(schedule) 
+		}
+agent any
     stages {
         stage ('Setup Env Vars'){
         steps {
