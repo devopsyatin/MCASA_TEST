@@ -26,8 +26,8 @@ pipeline {
             label 'snowflake'
         }
         }
-    options {
-    enforceBuildSchedule()
+    //options {
+    //enforceBuildSchedule()
             }
   
      triggers {
