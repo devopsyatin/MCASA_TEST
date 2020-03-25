@@ -86,9 +86,11 @@ post {
 		jiraSendDeploymentInfo environmentId: '', environmentName: '', environmentType: 'production', site: 'jira-jenkins-test.atlassian.net'
 		jiraSendBuildInfo branch: 'master', site: 'jira-jenkins-test.atlassian.net'
 		  }
-	   else if ( "${env.BRANCH_NAME}" == "qa" )
+	   else if ( "${env.BRANCH_NAME}" == "AUT-1" )
                   {
                   echo 'QA Deployment Successful !!!'
+		//jiraSendDeploymentInfo environmentId: '', environmentName: '', environmentType: 'production', site: 'jira-jenkins-test.atlassian.net'
+		jiraSendBuildInfo branch: 'master', site: 'jira-jenkins-test.atlassian.net'
 		  }
 		 }
       		}
