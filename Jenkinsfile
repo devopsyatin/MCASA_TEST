@@ -90,7 +90,7 @@ post {
                   {
                   echo 'QA Deployment Successful !!!'
 		//jiraSendDeploymentInfo environmentId: '', environmentName: '', environmentType: 'production', site: 'jira-jenkins-test.atlassian.net'
-		jiraSendBuildInfo branch: 'master', site: 'jira-jenkins-test.atlassian.net'
+		jiraSendBuildInfo branch: 'AUT-1', site: 'jira-jenkins-test.atlassian.net'
 		  }
 		 }
       		}
